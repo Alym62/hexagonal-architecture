@@ -1,4 +1,4 @@
-package org.hexagon.todo.controller;
+package org.hexagon.todo.adapter.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
