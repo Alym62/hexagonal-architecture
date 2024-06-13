@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/todo")
@@ -25,5 +26,11 @@ public class TodoController {
                 .toUri();
 
         return ResponseEntity.created(uri).body(entity);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Todo>> fetchAll() {
+        var entities = servicePort.fetchAll();
+        return ResponseEntity.ok().body(entities);
     }
 }

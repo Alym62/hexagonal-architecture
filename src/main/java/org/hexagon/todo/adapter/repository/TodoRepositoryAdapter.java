@@ -26,6 +26,7 @@ public class TodoRepositoryAdapter implements TodoRepositoryPort {
     @Override
     public List<Todo> fetchAll() {
         var entities = repository.findAll();
-        return List.of();
+        return entities.stream()
+                .map(it -> mapper.map(it, Todo.class)).toList();
     }
 }
